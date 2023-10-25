@@ -1,7 +1,23 @@
 .form {
 	background-color: $white;
 	padding: 132px 220px 80px 92px;
+	position: relative;
 	&__wrapper {
 		width: 648px;
+	}
+	.loader {
+		position: absolute;
+		top: 0;
+		left: 0;
+	}
+	.form-error {
+		position: absolute;
+		top: 0;
+		left: 0;
+	}
+	.form-success {
+		position: absolute;
+		top: 0;
+		left: 0;
 	}
 }
