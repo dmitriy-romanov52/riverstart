@@ -1,0 +1,40 @@
+.slider
+	.slider__wrapper.wrapper
+		h3.title Наши клиенты
+		.swiper.mySwiper.mySwiper
+			.swiper-wrapper
+				.swiper-slide
+					- var slides = [{title: "5 лет вместе", path:"img/internorm.svg"}, {title: "1 год вместе", path:"img/rosatom.svg"},{title: "1 год вместе", path:"img/unn.svg"},{title: "1 год вместе", path:"img/gaz.svg"},{title: "1 год вместе", path:"img/gazprom.svg"},{title: "2 года вместе", path:"img/doors.svg"},{title: "1 год вместе", path:"img/bonafide.svg"},{title: "", path:"img/university.svg"}]
+						each item, index in slides
+							.slider__item
+								img.slider__item-img(src=item.path, alt="")
+								h4.slider__item-title= item.title 
+				.swiper-slide
+					- var slides = [{title: "5 лет вместе", path:"img/internorm.svg"}, {title: "1 год вместе", path:"img/rosatom.svg"},{title: "1 год вместе", path:"img/unn.svg"},{title: "1 год вместе", path:"img/gaz.svg"},{title: "1 год вместе", path:"img/gazprom.svg"},{title: "2 года вместе", path:"img/doors.svg"},{title: "1 год вместе", path:"img/bonafide.svg"},{title: "", path:"img/university.svg"}]
+						each item, index in slides
+							.slider__item
+								img.slider__item-img(src=item.path, alt="")
+								h4.slider__item-title= item.title 
+				.swiper-slide
+					- var slides = [{title: "5 лет вместе", path:"img/internorm.svg"}, {title: "1 год вместе", path:"img/rosatom.svg"},{title: "1 год вместе", path:"img/unn.svg"},{title: "1 год вместе", path:"img/gaz.svg"},{title: "1 год вместе", path:"img/gazprom.svg"},{title: "2 года вместе", path:"img/doors.svg"},{title: "1 год вместе", path:"img/bonafide.svg"},{title: "", path:"img/university.svg"}]
+						each item, index in slides
+							.slider__item
+								img.slider__item-img(src=item.path, alt="")
+								h4.slider__item-title= item.title 
+		.slider__pagination 
+			.slider__pagination-manager 
+				picture
+					img(src="img/slider-manager-img.png", alt="") 
+				span 
+					| Среднее время работы
+					br
+					| с клиентом — 5 лет 💙
+			.slider__pagination__btns
+				button.slider__pagination-btn.prev-slide
+					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 18" fill="none">
+						<path d="M24 9L2 9M2 9L10.4493 17M2 9L10.4493 1" stroke="#F7F7FA" stroke-width="2.3"/>
+					</svg>
+				button.slider__pagination-btn.next-slide 
+					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 18" fill="none">
+						<path d="M0 9H22M22 9L13.5507 1M22 9L13.5507 17" stroke="#F7F7FA" stroke-width="2.3"/>
+					</svg>

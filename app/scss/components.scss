@@ -1,0 +1,35 @@
+.container {
+	width: 100%;
+	overflow: hidden;
+}
+
+.wrapper {
+	max-width: 1680px;
+	margin: 0 auto;
+    padding: 0 120px;
+    box-sizing: content-box;
+	@include break(xl){
+		padding: 0 60px;
+    }
+	@include break(lg){
+		padding: 0 40px;
+	}
+	@include break(sm){
+		padding: 0 30px;
+	}
+}
+
+.title {
+    font-size: 85px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%; /* 102px */
+    letter-spacing: -2.55px;
+    color: $white;
+    @include break(xl){
+        font-size: clamp(56px, 1.5vw, 85px);
+    }
+    @include break(lg){
+        font-size: clamp(42px, 1.5vw, 56px);
+    }
+}

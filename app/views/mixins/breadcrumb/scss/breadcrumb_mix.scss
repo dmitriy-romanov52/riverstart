@@ -1,0 +1,37 @@
+.breadcrumb {
+    padding: 16px 0;
+    border-top: 1px solid #0076C5;
+    border-bottom: 1px solid #0076C5;
+    background-color: $white;
+    margin: 0 0 60px 0;
+    @include break(sm){
+        margin: 0 0 30px 0;
+    }
+    &__list {
+        display: flex;
+        align-items: center;
+    }
+    &__item {
+        &:last-child {
+            pointer-events: none;
+            .breadcrumb__link-slash {
+                display: none;
+            }
+        }
+    }
+    &__link{
+        font-size: 15px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+        color: #535353;
+        margin: 0 2px 0 0;
+        transition: $transition-def;
+        @include break(lg){
+            font-size: clamp(8px, 1.5vw, 15px);
+        }
+        &:hover {
+            color: $blue;
+        }
+    }
+}

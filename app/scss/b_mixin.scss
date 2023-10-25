@@ -1,0 +1,93 @@
+//mixin.scss
+@use "sass:math";
+
+
+//СЕТКА
+
+//Переменные для сетки
+$max-width: 100%;
+// количество элементов
+$max-cols: 12;
+
+$breakpoints: (
+        sx: 320px,
+        sm: 768px,
+        md: 992px,
+        lg: 1200px,
+        xl: 1440px,
+        xx: 1680px
+);
+
+$max-breakpoints: (
+        sx: 425px,
+        sm: 768px,
+        md: 992px,
+        lg: 1200px,
+        xl: 1440px,
+        xx: 1919px
+);
+
+@mixin break($size) {
+  @media (max-width: map-get($max-breakpoints, $size)) {
+    @content;
+  }
+}
+
+@mixin break-min($size) {
+  @media (min-width: map-get($breakpoints, $size)) {
+    @content;
+  }
+}
+
+$media: (xl: 1440px, lg: 1200px, md: 992px, sm: 768px, sx: 560px);
+
+//@include width-media((xl: 2, lg: 3, md: 6, sm: 12, sx: 12));
+
+@mixin width($col) {
+  // flex: 0 0 calc($max-width / $max-cols) * $col - 2;
+  flex: 0 0 auto;
+  width: calc($max-width / $max-cols) * $col - 2;;
+}
+
+//@mixin width($col) {
+//  width: ($max-width / $max-cols * $col);
+//}
+
+@mixin width-media($param) {
+  @each $med, $col in $param {
+
+    @if $med == "xl" {
+      @media screen and (max-width: map-get($media, "xl")) {
+        @include width($col);
+      }
+    }
+    @else if $med == "lg" {
+      @media screen and (max-width: map-get($media, "lg")) {
+        @include width($col);
+      }
+    }
+    @else if $med == "md" {
+      @media screen and (max-width: map-get($media, "md")) {
+        @include width($col);
+      }
+    }
+    @else if $med == "sm" {
+      @media screen and (max-width: map-get($media, "sm")) {
+        @include width($col);
+      }
+    }
+    @else if $med == "sx" {
+      @media screen and (max-width: map-get($media, "sx")) {
+        @include width($col);
+      }
+    }
+    @else {
+      @include width($col);
+      margin: 0 1% 0 1%;
+    }
+  }
+}
+
+@mixin fSize($value) {
+  font-size: math.div($value, 16) + rem;
+}

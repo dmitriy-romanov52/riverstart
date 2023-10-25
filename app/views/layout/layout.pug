@@ -1,0 +1,19 @@
+//- layout.pug
+doctype html
+html
+    head
+        title riverstart
+        meta(charset="UTF-8")
+        meta(name="viewport" content="width=device-width, initial-scale=1")
+        link(rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css")
+        link(rel="stylesheet" href="css/my_style.css")
+        link(rel="icon", href="/img/faviconV2.ico")
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.cdnfonts.com/css/mont" rel="stylesheet">
+    body
+        main.main 
+            block content
+        block scripts
+            script(src='https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js')
+            script(src='/js/app.js')

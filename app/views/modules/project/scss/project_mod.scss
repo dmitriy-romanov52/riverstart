@@ -1,0 +1,18 @@
+.project {
+	margin: 0 0 114px 0;
+	position: relative;
+	&__wrapper {
+		display: flex;
+		flex-direction: column;
+		flex-wrap: wrap;
+
+	}
+	.title {
+		margin: 118px 0 52px 0;
+	}
+	&__form {
+		position: absolute;
+		top: 0;
+		right: 0;
+	}
+}
