@@ -2,7 +2,7 @@ if(document.querySelector(".form")){
     let errorModal = document.querySelector(".form-error")
     let loaderModal = document.querySelector(".loader")
     let successModal = document.querySelector(".form-success")
-    const url = '{{base_url}}/info';
+    const url = '/info';
     let formBtnArr = document.querySelectorAll(".form .btn")
     for(let i=0; i<formBtnArr.length;i++){
         formBtnArr[i].addEventListener("click",(evt)=>{
