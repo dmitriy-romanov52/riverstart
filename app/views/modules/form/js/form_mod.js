@@ -3,6 +3,7 @@ if(document.querySelector(".form")){
     let errorModal = document.querySelector(".form-error")
     let loaderModal = document.querySelector(".loader")
     let successModal = document.querySelector(".form-success")
+    
     //inputs
     let inputName = document.querySelector(".form__input-name")
     let inputPhone = document.querySelector(".form__input-phone")
@@ -128,10 +129,12 @@ if(document.querySelector(".form")){
         formData.append('comments', comments);
         formData.append('money', money);
         formData.append('file', file);
+
         const options = {
             method: 'POST',
             body: formData,
-          };
+        };
+
         fetch(url, options)
         .then(response => {
             if (response.ok) {
