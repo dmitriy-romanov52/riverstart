@@ -1,43 +1,44 @@
 .project
 	.project__wrapper.wrapper
 		section
-			.title Обсудить проект
-			.subtitle Расскажите о проекте в форме справа или свяжитесь с нами напрямую 
-			.email-item 
-				a(href="")
-					span hello@riverstart.ru
-				span Написать нам на почту
-			.email-item 
-				a(href="")
+			.project-title.title Обсудить проект
+			.project-subtitle.subtitle Расскажите о проекте в форме справа или свяжитесь с нами напрямую 
+			a.project__email-item.email-item(href="#") 
+				.project__email-wrapper
+					span.project__email-value hello@riverstart.ru
+				span.project__email-subtitle Написать нам на почту
+			a.project__email-item.email-item(href="#") 
+				.project__email-wrapper
 					picture
-						img(src="img/location-img.png", alt="")
-					span @ekhohrin
-				span Написать нашему аккаунт- директору в Telegram
+						img.project__email-img(src="img/location-img.png", alt="")
+					span.project__email-value @ekhohrin
+				span.project__email-subtitle Написать нашему аккаунт- директору в Telegram
 		section.project__form
 			include ../form/form_mod
 		section 
-			.location 
-				.location__item 
-					.location__item-name Московский офис
-					.location__item-address Новая пл., 6
-					a.location__item-phone(href="") 8 (499) 112-46-21
-				.location__item 
-					.location__item-name Нижегородский офис
-					.location__item-address ул. Рождественская, 26
-					a.location__item-phone(href="") 8 (831) 2-889-354
-			.location-max
-				.location-max-top 
-					.location-max__item-name Нижегородский офис
-					.location-max__item-address ул. Рождественская, 26
-					a.location-max__item-phone(href="") 8 (831) 2-889-354
-				.location-max-bottom
-					.location-max__info 
-						.location-max__subtitle 
-							span 
-							span 
-						a(href="")
+			.project-location.location 
+				.project-location__item 
+					.project-location__item-name Московский офис
+					.project-location__item-address Новая пл., 6
+					a.project-location__item-phone(href="#") 8 (499) 112-46-21
+				.project-location__item 
+					.project-location__item-name Нижегородский офис
+					.project-location__item-address ул. Рождественская, 26
+					a.project-location__item-phone(href="#") 8 (831) 2-889-354
+			.project-location-max
+				.project-location-max-top 
+					.project-location-max__item-name Нижегородский офис
+					.project-location-max__item-address ул. Рождественская, 26
+					a.project-location-max__item-phone(href="#") 8 (831) 2-889-354
+				.project-location-max-bottom
+					.project-location-max__info 
+						.project-location-max__subtitle 
+							span Oceanstart LLC
+							span Worldwide outsourcing and outstaffing
+						a.project-location-max-link(href="#")
 							span oceanstart.dev
 							<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none">
 								<path fill-rule="evenodd" clip-rule="evenodd" d="M8.42544 0.02921C7.99589 0.0321775 7.65008 0.382798 7.65305 0.812342C7.65602 1.24189 8.00664 1.5877 8.43618 1.58473L11.3308 1.56473L6.39148 6.50404C6.08774 6.80778 6.08774 7.30024 6.39148 7.60398C6.69522 7.90772 7.18768 7.90772 7.49142 7.60398L12.4307 2.66467L12.4107 5.55928C12.4078 5.98882 12.7536 6.33944 13.1831 6.34241C13.6127 6.34538 13.9633 5.99957 13.9662 5.57002L13.9993 0.779245C14.0008 0.571108 13.9187 0.371079 13.7716 0.2239C13.6244 0.0767214 13.4243 -0.00532518 13.2162 -0.00388767L8.42544 0.02921ZM1.55556 2.32968C1.55556 1.90013 1.90378 1.55191 2.33333 1.55191H4.66667C5.09622 1.55191 5.44444 1.20368 5.44444 0.774128C5.44444 0.344573 5.09622 -0.00364996 4.66667 -0.00364996H2.33333C1.04467 -0.00364996 0 1.04102 0 2.32968V11.663C0 12.9517 1.04467 13.9964 2.33333 13.9964H11.6667C12.9553 13.9964 14 12.9517 14 11.663V9.32968C14 8.90013 13.6518 8.55191 13.2222 8.55191C12.7927 8.55191 12.4444 8.90013 12.4444 9.32968V11.663C12.4444 12.0926 12.0962 12.4408 11.6667 12.4408H2.33333C1.90378 12.4408 1.55556 12.0926 1.55556 11.663V2.32968Z" fill="#F7F7FA"/>
-							</svg> 
-					img(src="img/location-logo.svg", alt="")
+							</svg>
+					a.project-location-max-logo(href="") 
+						img.project-location-max-img(src="img/location-logo.svg", alt="os")
