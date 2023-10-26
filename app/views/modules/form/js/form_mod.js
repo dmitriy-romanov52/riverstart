@@ -1,8 +1,43 @@
 if(document.querySelector(".form")){
+    const url = '/info';
     let errorModal = document.querySelector(".form-error")
     let loaderModal = document.querySelector(".loader")
     let successModal = document.querySelector(".form-success")
-    const url = '/info';
+    //inputs
+    let inputName = document.querySelector(".form__input-name")
+    let inputPhone = document.querySelector(".form__input-phone")
+    let inputEmail = document.querySelector(".form__input-email")
+    let inputComments = document.querySelector(".form__input-txt")
+
+    let nameValue = ""
+    let phoneValue = ""
+    let emailValue = ""
+    let commentsValue = ""
+
+    inputName.addEventListener("input",(e)=>{
+       
+        nameValue = e.target.value
+    })
+    inputPhone.addEventListener("input",(e)=>{
+       
+        phoneValue = e.target.value
+    })
+    inputEmail.addEventListener("input",(e)=>{
+       
+        emailValue = e.target.value
+    })
+    inputComments.addEventListener("input",(e)=>{
+       
+        commentsValue = e.target.value
+    })
+
+    function clearInputs (){
+        inputName.value = ""
+        inputPhone.value = ""
+        inputEmail.value = ""
+        inputComments.value = ""
+    }
+    //btns
     let formBtnArr = document.querySelectorAll(".form .btn")
     for(let i=0; i<formBtnArr.length;i++){
         formBtnArr[i].addEventListener("click",(evt)=>{
@@ -16,7 +51,12 @@ if(document.querySelector(".form")){
             btnsArr[i].classList.toggle("form-btn-selected")
         })
     }
-
+    function clearBtnState (){
+        for(let i=0; i<btnsArr.length;i++){
+            btnsArr[i].classList.remove("form-btn-selected")
+        }
+    }
+    //tabs
     let tabsBtnArr = document.querySelectorAll(".form__tab")
     function clearTabsState (){
         for(let j=0; j<tabsBtnArr.length;j++){
@@ -29,21 +69,22 @@ if(document.querySelector(".form")){
             tabsBtnArr[i].classList.add("form__tab-selected")
         })
     }
-    function showSlider() {
+    //Loader
+    function showLoader() {
         loaderModal.classList.add('loader-opened');
       }
-    // Функция для скрытия слайдера и отображения модального окна успеха
+    // Функция для скрытия лоадера и отображения модального окна успеха
     function showSuccessModal() {
     loaderModal.classList.remove('loader-opened');
     successModal.classList.add('opened');
     }
     
-    // Функция для скрытия слайдера и отображения модального окна ошибки
+    // Функция для скрытия лоадера и отображения модального окна ошибки
     function showErrorModal() {
     loaderModal.classList.remove('loader-opened');
     errorModal.classList.add('opened');
     }
-
+    //send-form
     let btnSendForm = document.querySelector(".form-btn-send")
     btnSendForm.addEventListener("click", ()=>{
         //category
@@ -60,13 +101,13 @@ if(document.querySelector(".form")){
         }
         //inputs
             //name
-            let name =""
+            let name = nameValue
             //phone
-            let phone=""
+            let phone= phoneValue
             //email
-            let email=""
+            let email= emailValue
             //coments
-            let comments=""
+            let comments= commentsValue
         //money
         let money = ""
         let selectedTab = document.querySelector(".form__tab-selected")
@@ -94,7 +135,7 @@ if(document.querySelector(".form")){
         fetch(url, options)
         .then(response => {
             if (response.ok) {
-            showSlider(); // Отображение слайдера при ожидании ответа
+            showLoader(); // Отображение слайдера при ожидании ответа
             return response;
             } else {
             throw new Error('Error');
@@ -102,6 +143,9 @@ if(document.querySelector(".form")){
         })
         .then(response => {
             showSuccessModal(); // Отображение модального окна успеха при получении ответа с кодом 200
+            clearTabsState ()
+            clearBtnState ()
+            clearInputs()
         })
         .catch(error => {
             console.log(error);
