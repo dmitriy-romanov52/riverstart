@@ -70,6 +70,42 @@ if(document.querySelector(".form")){
             tabsBtnArr[i].classList.add("form__tab-selected")
         })
     }
+    //file 
+    var fileInput = document.querySelector('.form__file input');
+    fileInput.addEventListener('change', handleFileValidation);
+
+    function handleFileValidation(event) {
+    var file = event.target.files[0];
+    var isValid = validateFile(file);
+
+    if (isValid) {
+        fileInput.classList.remove('error');
+        fileInput.classList.add('file-selected');
+        console.log('Файл валиден:', file.name);
+    } else {
+        fileInput.classList.add('error');
+        fileInput.classList.remove('file-selected');
+        console.log('Файл невалиден:', file.name);
+    }
+    }
+
+    function validateFile(file) {
+    var fileSize = file.size;
+    var fileExtension = file.name.split('.').pop().toLowerCase();
+
+    var allowedExtensions = ['doc', 'docx', 'pdf'];
+    var maxSize = 10 * 1024 * 1024; // 10MB
+
+    if (fileSize > maxSize) {
+        return false;
+    }
+
+    if (!allowedExtensions.includes(fileExtension)) {
+        return false;
+    }
+
+    return true;
+    }
     //Loader
     function showLoader() {
         loaderModal.classList.add('loader-opened');
@@ -119,7 +155,8 @@ if(document.querySelector(".form")){
             money = selectedTab.textContent
         }
         //file
-        let file = ""
+        let selectedFile = ""
+        
         //Подготовка запроса
         const formData = new FormData();
         formData.append('category', category);
