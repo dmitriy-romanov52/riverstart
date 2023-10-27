@@ -70,6 +70,23 @@
 		color: $additional-gray;
 		padding: 0 0 23px 0;
 		border-bottom: 2px solid #E0E0E4;
+		transition: $transition-def;
+		&.error {
+			border-bottom: 2px solid #E8412A;
+			position: relative;
+			&::after {
+				content: "Error мessage";
+				color: #E8412A;
+				font-size: 14px;
+				font-style: normal;
+				font-weight: 400;
+				line-height: 160%; /* 22.4px */
+				letter-spacing: 0.14px;
+				position: absolute;
+				left: 0;
+				bottom: -5px;
+			}
+		}
 		&-name {
 			width: 100%;
 			margin: 0 0 79px 0;

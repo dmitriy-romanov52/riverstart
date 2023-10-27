@@ -16,17 +16,55 @@ if(document.querySelector(".form")){
     let commentsValue = ""
 
     inputName.addEventListener("input",(e)=>{
-       
         nameValue = e.target.value
     })
-    inputPhone.addEventListener("input",(e)=>{
-       
-        phoneValue = e.target.value
-    })
-    inputEmail.addEventListener("input",(e)=>{
-       
-        emailValue = e.target.value
-    })
+    inputPhone.addEventListener("input", (e) => {
+        let phoneValue = e.target.value;
+        phoneValue = phoneValue.replace(/[-()]/g, "");
+        if (!phoneValue.startsWith("+7")) {
+            phoneValue = "+7" + phoneValue;
+        }        
+        phoneValue = formatPhoneNumber(phoneValue);
+        const phoneRegExp = /^\+7 \d{3} \d{3} \d{2} \d{2}$/;
+        if (!phoneValue.match(phoneRegExp)) {
+            inputPhone.classList.add("error");
+        } else {
+            inputPhone.classList.remove("error");
+        }        
+        e.target.value = phoneValue;
+    });
+    function formatPhoneNumber(phone) {
+        phone = phone.replace(/\s/g, "");
+        const formattedPhone = phone.replace(/^(\+7)(\d{3})(\d{3})(\d{2})(\d{2})$/, "$1 $2 $3 $4 $5");
+        return formattedPhone;
+    }
+    inputEmail.addEventListener("input", (e) => {
+        let emailValue = e.target.value;
+        
+        // Запрет на ввод недопустимых символов
+        emailValue = emailValue.replace(/[а-яА-Я]/g, "");
+        
+        // Добавление форматирования
+        emailValue = formatEmailAddress(emailValue);
+        
+        const emailRegExp = /^[\w.-]+@[\w.-]+\.[a-zA-Z]{2,}$/;
+        
+        if (!emailValue.match(emailRegExp)) {
+            inputEmail.classList.add("error");
+        } else {
+            inputEmail.classList.remove("error");
+        }
+        
+        // Установка отформатированного значения в поле
+        e.target.value = emailValue;
+    });
+    
+    function formatEmailAddress(email) {
+        // Удаление лишних пробелов
+        email = email.trim();
+    
+        return email;
+    }
     inputComments.addEventListener("input",(e)=>{
        
         commentsValue = e.target.value
@@ -181,7 +219,6 @@ if(document.querySelector(".form")){
             method: 'POST',
             body: formData,
         };
-
         fetch(url, options)
         .then(response => {
             if (response.ok) {

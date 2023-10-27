@@ -7,10 +7,20 @@
 		flex-wrap: wrap;
 
 	}
+	&-box {
+		@include break(xl){
+			display: flex;
+			flex-wrap: wrap;
+		}
+	}
 	&-title {
 		margin: 118px 0 52px 0;
 		@include break(xx){
 			font-size: 56px;
+		}
+		@include break(xl){
+			width: 100%;
+			margin: 0 0 20px 0;
 		}
 	}
 	&-subtitle {
@@ -24,6 +34,12 @@
 		@include break(xx){
 			max-width: 407.333px;
 		}
+		@include break(xl){
+			width: 100%;
+			max-width: 100%;
+			margin: 0 0 62px 0;
+		}
+
 	}
 	&__email-item {
 		max-width: fit-content;
@@ -31,6 +47,9 @@
 		flex-direction: column;
 		margin: 0 0 68px 0;
 		transition: $transition-def;
+		@include break(xl){
+			margin: 0 130px 0 0;
+		}
 		&:hover {
 			transform: translateX(2%);
 			.project__email-subtitle {
@@ -39,6 +58,9 @@
 		}
 		&:last-child {
 			margin: 0 0 195px 0;
+			@include break(xl){
+				margin: 0 0 100px 0;
+			}
 		}
 	}
 	&__email-item-wrapper {
@@ -52,6 +74,10 @@
 		object-fit: cover;
 		border-radius: 50%;
 		margin: 0 10px 0 0;
+		@include break(xl){
+			width: 32px;
+			height: 33.353px;
+		}
 	}
 	&__email-value {
 		font-size: 42px;
@@ -60,6 +86,9 @@
 		line-height: 110%; /* 46.2px */
 		letter-spacing: -1.26px;
 		color: $white;
+		@include break(xl){
+			font-size: 24px;
+		}
 	}
 	&__email-subtitle {
 		font-size: 18px;
@@ -68,6 +97,9 @@
 		line-height: 160%;
 		color: rgba($color: $white, $alpha: 0.6);
 		transition: $transition-def;
+		@include break(xl){
+			font-size: 12px;
+		}
 	}
 	&-location {
 		display: flex;
@@ -83,6 +115,9 @@
 		color: $white;
 		width: 50%;
 		margin: 0 0 64px 0;
+		@include break(xl){
+			
+		}
 	}
 	&-location__item-address {
 		margin: 15px 0;
@@ -100,9 +135,6 @@
 		padding: 33px 33px 33px 39px;
 		border-radius: 24px;
 		background: rgba($color: $white, $alpha: 0.05);
-		@include break(xx){
-			max-width: 407.333px;
-		}
 	}
 	&-location-max-top {
 		display: flex;
