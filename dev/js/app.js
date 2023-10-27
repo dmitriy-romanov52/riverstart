@@ -1,0 +1,185 @@
+
+if(document.querySelector(".form")){
+    const url = '/info';
+    let errorModal = document.querySelector(".form-error")
+    let loaderModal = document.querySelector(".loader")
+    let successModal = document.querySelector(".form-success")
+    
+    //inputs
+    let inputName = document.querySelector(".form__input-name")
+    let inputPhone = document.querySelector(".form__input-phone")
+    let inputEmail = document.querySelector(".form__input-email")
+    let inputComments = document.querySelector(".form__input-txt")
+
+    let nameValue = ""
+    let phoneValue = ""
+    let emailValue = ""
+    let commentsValue = ""
+
+    inputName.addEventListener("input",(e)=>{
+       
+        nameValue = e.target.value
+    })
+    inputPhone.addEventListener("input",(e)=>{
+       
+        phoneValue = e.target.value
+    })
+    inputEmail.addEventListener("input",(e)=>{
+       
+        emailValue = e.target.value
+    })
+    inputComments.addEventListener("input",(e)=>{
+       
+        commentsValue = e.target.value
+    })
+
+    function clearInputs (){
+        inputName.value = ""
+        inputPhone.value = ""
+        inputEmail.value = ""
+        inputComments.value = ""
+    }
+    //btns
+    let formBtnArr = document.querySelectorAll(".form .btn")
+    for(let i=0; i<formBtnArr.length;i++){
+        formBtnArr[i].addEventListener("click",(evt)=>{
+            evt.preventDefault()
+        })
+    }
+
+    let btnsArr = document.querySelectorAll(".form-btn")
+    for(let i=0; i<btnsArr.length;i++){
+        btnsArr[i].addEventListener("click",()=>{
+            btnsArr[i].classList.toggle("form-btn-selected")
+        })
+    }
+    function clearBtnState (){
+        for(let i=0; i<btnsArr.length;i++){
+            btnsArr[i].classList.remove("form-btn-selected")
+        }
+    }
+    //tabs
+    let tabsBtnArr = document.querySelectorAll(".form__tab")
+    function clearTabsState (){
+        for(let j=0; j<tabsBtnArr.length;j++){
+            tabsBtnArr[j].classList.remove("form__tab-selected")
+        }
+    }
+    for(let i=0; i<tabsBtnArr.length;i++){
+        tabsBtnArr[i].addEventListener("click",()=>{
+            clearTabsState ()
+            tabsBtnArr[i].classList.add("form__tab-selected")
+        })
+    }
+    //Loader
+    function showLoader() {
+        loaderModal.classList.add('loader-opened');
+      }
+    // Функция для скрытия лоадера и отображения модального окна успеха
+    function showSuccessModal() {
+    loaderModal.classList.remove('loader-opened');
+    successModal.classList.add('opened');
+    }
+    
+    // Функция для скрытия лоадера и отображения модального окна ошибки
+    function showErrorModal() {
+    loaderModal.classList.remove('loader-opened');
+    errorModal.classList.add('opened');
+    }
+    //send-form
+    let btnSendForm = document.querySelector(".form-btn-send")
+    btnSendForm.addEventListener("click", ()=>{
+        //category
+        let selectedBtn = document.querySelectorAll(".form-btn-selected")
+        let category = []
+        if(selectedBtn.length == 0){
+            alert("Выберите категорию, которая Вас интересует")
+        }
+        else {
+            for(let i=0;i<selectedBtn.length;i++){
+                let item = selectedBtn[i].textContent
+                category.push(item)
+            }
+        }
+        //inputs
+            //name
+            let name = nameValue
+            //phone
+            let phone= phoneValue
+            //email
+            let email= emailValue
+            //coments
+            let comments= commentsValue
+        //money
+        let money = ""
+        let selectedTab = document.querySelector(".form__tab-selected")
+        if(selectedTab == null){
+            alert("Выберите бюджет")
+        }
+        else {
+            money = selectedTab.textContent
+        }
+        //file
+        let file = ""
+        //Подготовка запроса
+        const formData = new FormData();
+        formData.append('category', category);
+        formData.append('name', name);
+        formData.append('phone', phone);
+        formData.append('email', email);
+        formData.append('comments', comments);
+        formData.append('money', money);
+        formData.append('file', file);
+
+        const options = {
+            method: 'POST',
+            body: formData,
+        };
+
+        fetch(url, options)
+        .then(response => {
+            if (response.ok) {
+            showLoader(); // Отображение слайдера при ожидании ответа
+            return response;
+            } else {
+            throw new Error('Error');
+            }
+        })
+        .then(response => {
+            showSuccessModal(); // Отображение модального окна успеха при получении ответа с кодом 200
+            clearTabsState ()
+            clearBtnState ()
+            clearInputs()
+        })
+        .catch(error => {
+            console.log(error);
+            showErrorModal(); // Отображение модального окна ошибки при получении ответа с ошибкой
+        });
+    })
+}
+
+if(document.querySelector(".mySwiper")){
+    var swiper = new Swiper(".mySwiper", {
+        slidesPerView: "auto",
+        spaceBetween: 16,
+        initialSlide: 0,
+        centeredSlides: true,
+        allowTouchMove: isSmallScreen(),
+        loop: false,
+        loopAdditionalSlides: 2,
+        loopedSlides: 3, // настройте это значение, исходя из количества отображаемых слайдов
+        navigation: {
+          prevEl: ".slider .prev-slide",
+          nextEl: ".slider .next-slide",
+        },
+      });
+      
+      function isSmallScreen() {
+        return window.innerWidth < 1200;
+      }
+      
+      window.addEventListener("resize", function() {
+        swiper.params.allowTouchMove = isSmallScreen();
+        swiper.update();
+      });
+}
