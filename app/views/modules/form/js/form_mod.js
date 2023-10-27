@@ -85,7 +85,7 @@ if(document.querySelector(".form")){
     } else {
         fileInput.classList.add('error');
         fileInput.classList.remove('file-selected');
-        console.log('Файл невалиден:', file.name);
+        alert('Файл невалиден:', file.name)
     }
     }
 
@@ -120,18 +120,20 @@ if(document.querySelector(".form")){
     loaderModal.classList.remove('loader-opened');
     errorModal.classList.add('form-error-opened');
     }
+
     //close error and success
     let successModalClose = successModal.querySelector(".form-success-close")
     let errorModalClose = errorModal.querySelector(".form-error-close")
+    let repeatSendForm = errorModal.querySelector(".form-error-btn")
     successModalClose.addEventListener("click",()=>{
         successModal.classList.remove("form-success-opened")
     })
     errorModalClose.addEventListener("click",()=>{
         errorModal.classList.remove("form-error-opened")
     })
+
     //send-form
-    let btnSendForm = document.querySelector(".form-btn-send")
-    btnSendForm.addEventListener("click", ()=>{
+    function sendForm (){
         //category
         let selectedBtn = document.querySelectorAll(".form-btn-selected")
         let category = []
@@ -199,5 +201,12 @@ if(document.querySelector(".form")){
             console.log(error);
             showErrorModal(); // Отображение модального окна ошибки при получении ответа с ошибкой
         });
+    }
+    let btnSendForm = document.querySelector(".form-btn-send")
+    btnSendForm.addEventListener("click", ()=>{
+        sendForm()
+    })
+    repeatSendForm.addEventListener("click", ()=>{
+        sendForm()
     })
 }
