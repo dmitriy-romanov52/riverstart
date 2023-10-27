@@ -4,7 +4,7 @@ if(document.querySelector(".form")){
     let errorModal = document.querySelector(".form-error")
     let loaderModal = document.querySelector(".loader")
     let successModal = document.querySelector(".form-success")
-    
+
     //inputs
     let inputName = document.querySelector(".form__input-name")
     let inputPhone = document.querySelector(".form__input-phone")
@@ -114,14 +114,22 @@ if(document.querySelector(".form")){
     // Функция для скрытия лоадера и отображения модального окна успеха
     function showSuccessModal() {
     loaderModal.classList.remove('loader-opened');
-    successModal.classList.add('opened');
+    successModal.classList.add('form-success-opened');
     }
-    
     // Функция для скрытия лоадера и отображения модального окна ошибки
     function showErrorModal() {
     loaderModal.classList.remove('loader-opened');
-    errorModal.classList.add('opened');
+    errorModal.classList.add('form-error-opened');
     }
+    //close error and success
+    let successModalClose = successModal.querySelector(".form-success-close")
+    let errorModalClose = errorModal.querySelector(".form-error-close")
+    successModalClose.addEventListener("click",()=>{
+        successModal.classList.remove("form-success-opened")
+    })
+    errorModalClose.addEventListener("click",()=>{
+        errorModal.classList.remove("form-error-opened")
+    })
     //send-form
     let btnSendForm = document.querySelector(".form-btn-send")
     btnSendForm.addEventListener("click", ()=>{
