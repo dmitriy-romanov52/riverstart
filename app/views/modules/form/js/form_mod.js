@@ -165,7 +165,7 @@ if(document.querySelector(".form")){
         formData.append('email', email);
         formData.append('comments', comments);
         formData.append('money', money);
-        formData.append('file', file);
+        formData.append('file', selectedFile);
 
         const options = {
             method: 'POST',
