@@ -3,9 +3,14 @@
 	background-color: #EEEFF4;
 	padding: 132px 220px 80px 92px;
 	position: relative;
+	@include break(xx){
+		padding: 132px 60px 80px ;
+	}
+	@include break(xl){
+		
+	}
 	&__wrapper {
 		width: 648px;
-
 	}
 	&__question {
 		font-size: 22px;

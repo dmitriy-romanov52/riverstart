@@ -218,7 +218,7 @@ if(document.querySelector(".mySwiper")){
         spaceBetween: 16,
         initialSlide: 0,
         centeredSlides: true,
-        allowTouchMove: isSmallScreen(),
+        allowTouchMove: true,
         loop: false,
         loopAdditionalSlides: 2,
         loopedSlides: 3, // настройте это значение, исходя из количества отображаемых слайдов
@@ -226,14 +226,5 @@ if(document.querySelector(".mySwiper")){
           prevEl: ".slider .prev-slide",
           nextEl: ".slider .next-slide",
         },
-      });
-      
-      function isSmallScreen() {
-        return window.innerWidth < 1200;
-      }
-      
-      window.addEventListener("resize", function() {
-        swiper.params.allowTouchMove = isSmallScreen();
-        swiper.update();
       });
 }
