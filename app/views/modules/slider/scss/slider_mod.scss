@@ -1,10 +1,16 @@
 .slider {
 	margin: 80px 0 132px 0;
+	@include break(xl){
+		margin: 53px 0 90px 0;
+	}
 	.title {
 		margin: 0 0 30px 0;
 	}
 	.swiper {
 		margin: 0 0 40px 0;
+		@include break(lg){
+			margin:  0 0 53px 0;
+		}
 	}
 	.swiper-slide {
 		display: flex;
@@ -12,19 +18,35 @@
 		justify-content: space-between;
 		flex-wrap: wrap;
 		padding: 25px 0;
+		@include break(lg){
+			
+		}
 	}
 	&__item {
 		display: flex;
 		flex-direction: column;
 		align-items: center;
-		width: 340px;
+		width: 21%;
 		margin: 0 0 90px;
 		transition: $transition-def;
+		@include break(lg){
+			width: 21%;
+		}
+		@include break(sm){
+			width: 45%;
+			margin: 0 0 40px;
+		}
 		&:nth-child(4n){
 			margin: 0 0 90px;
+			@include break(sm){
+				margin: 0 0 40px;
+			}
 		}
 		&:nth-child(n + 5){
 			margin-bottom: 0;
+			@include break(sm){
+				margin: 0 0 40px;
+			}
 		}
 		&:hover {
 			transform: scale(1.1);
@@ -44,12 +66,21 @@
 	&__pagination {
 		display: flex;
 		justify-content: space-between;
+
 	}
 	&__pagination-manager {
 		display: flex;
 		align-items: center;
 		img {
+			width: 84px;
+			height: 84px;
+			object-fit: cover;
 			margin: 0 39px 0 0;
+			@include break(sm){
+				width: 66px;
+				height: 66px;
+				margin: 0 28px 0 0;
+			}
 		}
 		span {
 			position: relative;
@@ -58,6 +89,10 @@
 			font-weight: 400;
 			line-height: 130%;
 			color: $primary-black;
+			z-index: 1;
+			@include break(sm){
+				font-size: 16px;
+			}
 			&::after {
 				content: "";
 				position: absolute;
@@ -70,12 +105,19 @@
 				background-image: url("/img/slider-manager-bg.svg");
 				background-size: cover;
 				background-repeat: no-repeat;
+				@include break(sm){
+					width: 240px;
+					height: 73px;
+				}
 			}
 
 		}
 	}
 	&__pagination__btns {
 		display: flex;
+		@include break(lg){
+			display: none;
+		}
 	}
 	&__pagination-btn {
 		display: flex;
