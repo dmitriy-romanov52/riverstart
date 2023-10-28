@@ -59,7 +59,7 @@
 		&:last-child {
 			margin: 0 0 195px 0;
 			@include break(xl){
-				margin: 0 0 100px 0;
+				margin: 0 0 31px 0;
 			}
 		}
 	}
@@ -100,6 +100,9 @@
 		@include break(xl){
 			font-size: 12px;
 		}
+	}
+	&-box-2 {
+		margin: 57px 0 0 0;
 	}
 	&-location {
 		display: flex;
@@ -228,9 +231,12 @@
 		right: 0;
 		width: auto;
 		height: 100%;
+		@media (min-width: 1921px) {
+			right: calc((100vw - 1680px) / 2);
+		}
 		@include break(xl){
 			position: relative;
-			margin: - 60px;
+			margin: 0 -60px;
 		}
 	}
 }
