@@ -138,6 +138,9 @@
 		padding: 33px 33px 33px 39px;
 		border-radius: 24px;
 		background: rgba($color: $white, $alpha: 0.05);
+		@include break(xl){
+			max-width: 100%;
+		}
 	}
 	&-location-max-top {
 		display: flex;
@@ -237,6 +240,10 @@
 		@include break(xl){
 			position: relative;
 			margin: 0 -60px;
+		}
+		@include break(lg){
+			width: calc( 100% + 120px);
+			max-width: calc( 100% + 120px);
 		}
 	}
 }

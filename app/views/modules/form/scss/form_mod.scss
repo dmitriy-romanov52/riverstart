@@ -7,10 +7,21 @@
 		padding: 132px 60px 80px ;
 	}
 	@include break(xl){
-		
+		padding: 132px 00px 80px 60px;
+	}
+	@include break(lg){
+		width: 100%;
+		max-width: 100%;
 	}
 	&__wrapper {
 		width: 648px;
+		@include break(xl){
+			width: 100%;
+		}
+		@include break(lg){
+			width: 100%;
+			max-width: 100%;
+		}
 	}
 	&__question {
 		font-size: 22px;
@@ -25,6 +36,14 @@
 		display: flex;
 		flex-wrap: wrap;
 		margin: 0 -5px 60px;
+		@include break(xl){
+			flex-wrap: nowrap;
+			overflow-x: scroll;
+		}
+		@include break(lg){
+			width: 100%;
+			max-width: 100%;
+		}
 	}
 	&-btn {
 		text-align: center;
@@ -40,6 +59,7 @@
 		letter-spacing: -0.2px;
 		color: $primary-black;
 		transition: $transition-def;
+		white-space: nowrap;
 		&:hover {
 			transform: scale(1.05);
 		}
@@ -90,17 +110,31 @@
 		&-name {
 			width: 100%;
 			margin: 0 0 79px 0;
+			@include break(xl){
+				width: calc(50% - 12px);
+				margin: 0 12px 43px 0;
+			}
 		}
 		&-phone {
 			width: calc(50% - 12px);
 			margin: 0 24px 152px 0;
+			@include break(xl){
+				margin: 0 24px 95px 0;
+			}
 		}
 		&-email {
-			width: calc(50% - 12px);
+			width: calc(50% - 12px - 60px);
 			margin: 0 0 152px 0;
+			@include break(xl){
+				margin: 0 0px 95px 0;
+			}
 		}
 		&-txt {
 			width: 100%;
+			@include break(xl){
+				width: calc(100% - 60px);
+				margin: 0 0 70px 0;
+			}
 		}
 	}
 	&__tabs {
@@ -160,6 +194,9 @@
 			border-left: none;
 			border-top-right-radius: 16px;
 			border-bottom-right-radius: 16px;
+			@include break(xl){
+				margin: 0 60px 0 0 ;
+			}
 			&:hover {
 				border: 2px solid rgba($color: #1F2032, $alpha: 0.1);
 			}
@@ -214,6 +251,9 @@
 		line-height: 150%; /* 30px */
 		letter-spacing: -0.2px;
 		color: $primary-black;
+		@include break(xl){
+			display: none;
+		}
 		svg {
 			
 		}
@@ -252,8 +292,14 @@
 		font-weight: 400;
 		line-height: 150%; /* 24px */
 		letter-spacing: 0.16px;
+		@include break(xl){
+			flex-direction: row;
+		}
 		span {
 			color: rgba(21, 20, 26, 0.40);
+			@include break(xl){
+				margin: 0 5px 0 0;
+			}
 		}
 		a {
 			color: $primary-blue;
