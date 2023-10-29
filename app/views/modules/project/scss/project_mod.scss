@@ -12,6 +12,9 @@
 			display: flex;
 			flex-wrap: wrap;
 		}
+		@include break(sm){
+			flex-direction: column;
+		}
 	}
 	&-title {
 		margin: 118px 0 52px 0;
@@ -22,6 +25,8 @@
 			width: 100%;
 			margin: 0 0 20px 0;
 		}
+		@include break(sm){
+			font-size: 38px;		}
 	}
 	&-subtitle {
 		font-size: 26px;
@@ -39,7 +44,17 @@
 			max-width: 100%;
 			margin: 0 0 62px 0;
 		}
-
+		@include break(sm){
+			font-size: 16px;
+			margin: 0 0 59px 0;
+		}
+	}
+	&__email-wrapper {
+		@include break(sm){
+			display: flex;
+			justify-content: flex-end;
+			flex-direction: row-reverse;
+		}
 	}
 	&__email-item {
 		max-width: fit-content;
@@ -49,6 +64,9 @@
 		transition: $transition-def;
 		@include break(xl){
 			margin: 0 130px 0 0;
+		}
+		@include break(sm){
+			margin: 0 0 20px 0;
 		}
 		&:hover {
 			transform: translateX(2%);
@@ -77,6 +95,9 @@
 		@include break(xl){
 			width: 32px;
 			height: 33.353px;
+		}
+		@include break(sm){
+			margin: 0 0 0 10px;
 		}
 	}
 	&__email-value {
@@ -121,10 +142,16 @@
 		@include break(xl){
 			
 		}
+		@include break(sm){
+			font-size: 12px;
+		}
 	}
 	&-location__item-address {
 		margin: 15px 0;
 		color: rgba($color: $white, $alpha: 0.6);
+		@include break(sm){
+			margin: 10px 0;
+		}
 	}
 	&-location__item-phone {
 		color: rgba($color: $white, $alpha: 0.6);
@@ -141,6 +168,12 @@
 		@include break(xl){
 			max-width: 100%;
 		}
+		@include break(sm){
+			width: calc(100% + 80px);
+			max-width: calc(100% + 80px);
+			border-radius: 0;
+			margin: 0 -40px;
+		}
 	}
 	&-location-max-top {
 		display: flex;
@@ -152,11 +185,17 @@
 		letter-spacing: 0.18px;
 		color: $white;
 		margin: 0 0 73px 0;
+		@include break(sm){
+			font-size: 12px;
+		}
 	}
 	&-location-max__item-address {
 		margin: 15px 0;
 		color: rgba($color: $white, $alpha: 0.5);
 		max-width: fit-content;
+		@include break(sm){
+			margin: 10px 0;
+		}
 	}
 	&-location-max__item-phone {
 		max-width: fit-content;
@@ -185,6 +224,9 @@
 		letter-spacing: 0.18px;
 		color: rgba($color: $white, $alpha: 0.5);
 		margin: 0 0 29px 0;
+		@include break(sm){
+			font-size: 12px;
+		}
 	}
 	&-location-max-link {
 		max-width: fit-content;
@@ -197,6 +239,9 @@
 		letter-spacing: 0.23px;
 		color: $white;
 		position: relative;
+		@include break(sm){
+			font-size: 15px;
+		}
 		&:hover {
 			&::after {
 				width: 100%;
@@ -227,6 +272,10 @@
 		height: 90px;
 		border-radius: 50%;
 		object-fit: cover;
+		@include break(sm){
+			width: 59px;
+			height: 59px;
+		}
 	}
 	&__form {
 		position: absolute;

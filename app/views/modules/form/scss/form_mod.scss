@@ -7,11 +7,14 @@
 		padding: 132px 60px 80px ;
 	}
 	@include break(xl){
-		padding: 132px 00px 80px 60px;
+		padding: 132px 0px 80px 60px;
 	}
 	@include break(lg){
 		width: 100%;
 		max-width: 100%;
+	}
+	@include break(sm){
+		padding: 30px 0 30px 60px;
 	}
 	&__wrapper {
 		width: 648px;
@@ -31,6 +34,9 @@
 		letter-spacing: 0.22px;
 		margin: 0 0 24px 0;
 		color: $additional-gray;
+		@include break(sm){
+			font-size: 15px;
+		}
 	}
 	&__btns {
 		display: flex;
@@ -60,6 +66,10 @@
 		color: $primary-black;
 		transition: $transition-def;
 		white-space: nowrap;
+		@include break(sm){
+			font-size: 14px;
+			padding: 11px 32px;
+		}
 		&:hover {
 			transform: scale(1.05);
 		}
@@ -79,6 +89,9 @@
 		display: flex;
 		flex-wrap: wrap;
 		margin: 0 0 60px 0;
+		@include break(sm){
+			margin: 0 0px 53px 0;
+		}
 	}
 	&__input {
 		width: 50%;
@@ -91,6 +104,9 @@
 		padding: 0 0 23px 0;
 		border-bottom: 2px solid #E0E0E4;
 		transition: $transition-def;
+		@include break(sm){
+			font-size: 15px;
+		}
 		&.error {
 			border-bottom: 2px solid #E8412A;
 			position: relative;
@@ -114,12 +130,20 @@
 				width: calc(50% - 12px);
 				margin: 0 12px 43px 0;
 			}
+			@include break(sm){
+				width: calc(100%);
+				margin: 0px 60px 42px 0;
+			}
 		}
 		&-phone {
 			width: calc(50% - 12px);
 			margin: 0 24px 152px 0;
 			@include break(xl){
 				margin: 0 24px 95px 0;
+			}
+			@include break(sm){
+				width: calc(100%);
+				margin: 0px 60px 42px 0;
 			}
 		}
 		&-email {
@@ -128,12 +152,20 @@
 			@include break(xl){
 				margin: 0 0px 95px 0;
 			}
+			@include break(sm){
+				width: calc(100%);
+				margin: 0px 60px 82px 0;
+			}
 		}
 		&-txt {
 			width: 100%;
 			@include break(xl){
 				width: calc(100% - 60px);
 				margin: 0 0 70px 0;
+			}
+			@include break(sm){
+				width: calc(100%);
+				margin: 0px 60px 0 0;
 			}
 		}
 	}
@@ -149,6 +181,9 @@
 		letter-spacing: 0.2px;
 		margin: 0 0 24px 0;
 		color: $additional-gray;
+		@include break(sm){
+			font-size: 15px;
+		}
 	}
 	&__tabs__wrapper  {
 		display: flex;
@@ -168,6 +203,9 @@
 		background-color: $white;
 		border: 2px solid rgba($color: #1F2032, $alpha: 0.1);
 		transition: $transition-def;
+		@include break(sm){
+			font-size: 14px;
+		}
 		&:hover {
 			transform: scale(1.025);
 		}
@@ -273,6 +311,12 @@
 		letter-spacing: 0.2px;
 		margin: 0 0 64px 0;
 		transition: $transition-def;
+		@include break(sm){
+			text-align: center;
+			width: calc(100% - 60px);
+			font-size: 16px;
+			padding: 24px 0;
+		}
 		&:hover {
 			background-color: $primary-blue-hover;
 		}
@@ -294,6 +338,9 @@
 		letter-spacing: 0.16px;
 		@include break(xl){
 			flex-direction: row;
+		}
+		@include break(sm){
+			flex-direction: column;
 		}
 		span {
 			color: rgba(21, 20, 26, 0.40);

@@ -87,7 +87,14 @@ input:focus, input:active,
 button:focus, button:active {
     outline: none;
 }
-
+input {
+	border-radius: 0;
+	}
+	
+input[type=text], input[type=button], input[type=submit], button {
+-webkit-appearance: none;
+-webkit-border-radius: 0;
+}
 button::-moz-focus-inner {
 	padding: 0;
 	border: 0;
